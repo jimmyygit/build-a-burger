@@ -74,6 +74,14 @@ export default class BurgerBuilder extends Component {
     alert(';')
   }
 
+  clearHandler = () => {
+    const updatedIngredients = {...this.state.ingredients};
+    for (let key in updatedIngredients) {
+      updatedIngredients[key] = 0;
+    }
+    this.setState({ingredients: updatedIngredients})
+  }
+
 
   render() {
     const disabledInfo = {
@@ -102,7 +110,8 @@ export default class BurgerBuilder extends Component {
           disabled={disabledInfo}
           purchasable={this.state.purchasable} 
           ordered={this.purchaseHandler}
-          price={this.state.totalPrice}/>
+          price={this.state.totalPrice}
+          clear={this.clearHandler}/>
       </>
     )
   }
