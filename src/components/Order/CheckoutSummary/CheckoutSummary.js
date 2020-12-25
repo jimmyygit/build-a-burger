@@ -7,7 +7,7 @@ export default function CheckoutSummary(props) {
   return (
     <div className={classes.CheckoutSummary}>
       <h1>Enjoy!</h1>
-      <div style={{width: '100%', margin: 'auto'}}>
+      <div >
         <Burger ingredients={props.ingredients}/>
       </div>
       <Button 
