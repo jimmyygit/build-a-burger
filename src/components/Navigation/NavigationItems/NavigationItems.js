@@ -6,9 +6,9 @@ export default function NavigationItems(props) {
   return (
     <ul className={classes.NavigationItems}>
       <NavigationItem 
-        link="/" active>Burger Builder</NavigationItem>
+        link="/" exact>Burger Builder</NavigationItem>
       <NavigationItem
-      link="/">Checkout </NavigationItem>
+      link="/orders"> Orders </NavigationItem>
     </ul>
   )
 }

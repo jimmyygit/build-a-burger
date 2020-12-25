@@ -29,6 +29,7 @@ class BurgerBuilder extends Component {
     axios.get('https://burger-387cb-default-rtdb.firebaseio.com/ingredients.json')
       .then(res => {
         this.setState({ ingredients: res.data })
+        this.updatePurchaseState(res.data)
       })
       .catch(error => {
         this.setState({error: true})
@@ -81,24 +82,19 @@ class BurgerBuilder extends Component {
 
   purchaseContinueHandler = () => {
     // alert(';')
-    this.setState({ loading: true });
-    const order = {
-      ingredients: this.state.ingredients,
-      price: this.state.totalPrice,
-      customer: {
-        name: 'namee',
-        address: {
-          street: '32 st',
-          zipCode: '132',
-          country: 'coun'
-        },
-        email: 'mail@',
-      },
-      deliveryMethod: 'fast'
+
+    const queryParams = [];
+    for (let i in this.state.ingredients) {
+      queryParams.push(encodeURIComponent(i)+'='+encodeURIComponent(this.state.ingredients[i]))
+      // queryParams.push(i+'='+this.state.ingredients[i])
     }
-    axios.post('/orders.json', order)
-      .then(res => this.setState({ loading: false, purchasing: false }))
-      .catch(error => this.setState({ loading: false, purchasing: false }))
+    queryParams.push('price=' + this.state.totalPrice)
+    const queryString = queryParams.join('&')
+
+    this.props.history.push({
+      pathname: '/checkout',
+      search: '?' + queryString
+    })
   }
 
   clearHandler = () => {
