@@ -6,7 +6,9 @@
   align-items: center;
   box-shadow: 0 2px 1px black;
   margin: auto;
-  padding: 10px 0px;
+  padding: 1px 0px;
+  /* position: absolute;
+  bottom: 0px; */
 }
 
 
