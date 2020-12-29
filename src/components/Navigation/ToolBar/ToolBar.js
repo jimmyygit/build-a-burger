@@ -14,7 +14,7 @@ export default function ToolBar(props) {
       </div>
 
       <nav className={classes.DesktopOnly}>
-        <NavigationItems />
+        <NavigationItems isAuthenicated={props.isAuth}/>
       </nav>
     </header>
   )

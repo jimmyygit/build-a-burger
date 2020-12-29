@@ -5,10 +5,12 @@ import NavigationItem from './NavigationItem/NavigationItem'
 export default function NavigationItems(props) {
   return (
     <ul className={classes.NavigationItems}>
-      <NavigationItem 
-        link="/" exact>Burger Builder</NavigationItem>
       <NavigationItem
-      link="/orders"> Orders </NavigationItem>
+        link="/" exact>Burger Builder</NavigationItem>
+      {props.isAuthenicated ? <NavigationItem link="/orders"> Orders </NavigationItem> : null } 
+      {!props.isAuthenicated
+        ? <NavigationItem link="/auth"> Auth </NavigationItem>
+        : <NavigationItem link="/logout"> Logout </NavigationItem>}
     </ul>
   )
 }
