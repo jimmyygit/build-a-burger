@@ -31,13 +31,16 @@ export const fetchIngredientsFailed = () => {
 }
 
 export const initIngredients = () => {
-  return dispatch => {
-    axios.get('https://burger-387cb-default-rtdb.firebaseio.com/ingredients.json')
-      .then(res => {
-        dispatch(setIngredients(res.data))
-      })
-      .catch(error => {
-        dispatch(fetchIngredientsFailed())
-      }) 
+  return {
+    type: actionTypes.INIT_INGREDIENTS
   }
+  // return dispatch => {
+  //   axios.get('https://burger-387cb-default-rtdb.firebaseio.com/ingredients.json')
+  //     .then(res => {
+  //       dispatch(setIngredients(res.data))
+  //     })
+  //     .catch(error => {
+  //       dispatch(fetchIngredientsFailed())
+  //     }) 
+  // }
 }
