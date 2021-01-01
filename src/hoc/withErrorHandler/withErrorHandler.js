@@ -42,3 +42,5 @@ export default function withErrorHandler(WrappedComponent, axios) {
     }
   }
 }
+
+// bruh idk func
