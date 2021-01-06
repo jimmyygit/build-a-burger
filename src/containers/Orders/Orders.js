@@ -12,7 +12,7 @@ function Orders (props) {
   useEffect(() => {
     // console.log(this.props.token)
     onFetchOrders(props.token, props.userId)
-  }, [onFetchOrders])
+  }, [props, onFetchOrders])
 
 
 

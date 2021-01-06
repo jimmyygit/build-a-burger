@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import classes from './Layout.module.css'
 import ToolBar from '../Navigation/ToolBar/ToolBar'

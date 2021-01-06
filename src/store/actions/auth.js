@@ -1,5 +1,4 @@
 import * as actionTypes from './actionTypes'
-import axios from 'axios'
 
 export const authStart = () => {
   return {
@@ -23,7 +22,7 @@ export const authFail = (error) => {
 }
 
 export const logout = () => {
-  console.log('logotu')
+  // console.log('logotu')
   // localStorage.removeItem('token')
   // localStorage.removeItem('expirationDate')
   // localStorage.removeItem('userId')

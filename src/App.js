@@ -1,8 +1,8 @@
-import React, { Component, useEffect, Suspense } from 'react'
+import React, { useEffect, Suspense } from 'react'
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actions from './store/actions/index'
-import asyncComponent from './hoc/asyncComponent/asyncComponent'
+// import asyncComponent from './hoc/asyncComponent/asyncComponent'
 
 import Layout from './components/Layout/Layout'
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder'

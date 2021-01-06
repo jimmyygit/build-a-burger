@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { connect, useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import axios from '../../axios-orders'
 import Burger from '../../components/Burger/Burger'
@@ -24,7 +24,8 @@ function BurgerBuilder(props) {
   const dispatch = useDispatch()
   const onIngredientAdded = (ingName) => dispatch(actions.addIngredient(ingName));
   const onIngredientRemoved = (ingName) => dispatch(actions.removeIngredient(ingName));
-  const onInitIngredients = useCallback(() => dispatch(actions.initIngredients()), []);
+  const onClearIngredients = () => dispatch(actions.clearIngredients())
+  const onInitIngredients = useCallback(() => dispatch(actions.initIngredients()), [dispatch]);
   const onInitPurchase = () => dispatch(actions.purchaseInit());
   const onSetAuthRedirectPath = (path) => dispatch(actions.setAuthRedirectPath(path));
 
@@ -59,12 +60,7 @@ function BurgerBuilder(props) {
   }
 
   const clearHandler = () => {
-    const updatedIngredients = { ...this.state.ingredients };
-    for (let key in updatedIngredients) {
-      updatedIngredients[key] = 0;
-    }
-    this.setState({ ingredients: updatedIngredients })
-    this.updatePurchaseState(updatedIngredients)
+    onClearIngredients()
   }
 
 
@@ -80,7 +76,8 @@ function BurgerBuilder(props) {
   let burger = error ? <p>Can't Load</p> : <Spinner />
   if (ings) {
     burger = (<>
-      <Burger ingredients={ings} />
+      <Burger 
+        ingredients={ings} />
       <BuildControls
         ingredientAdded={onIngredientAdded}
         ingredientRemoved={onIngredientRemoved}
