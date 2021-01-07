@@ -109,7 +109,8 @@ function ContactData(props) {
       ingredients: props.ings,
       price: props.price,
       orderData: formData,
-      userId: props.userId
+      userId: props.userId,
+      date: new Date()
     }
 
     console.log(props.token)

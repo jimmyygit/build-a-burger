@@ -9,7 +9,7 @@ export default function NavigationItems(props) {
         link="/" exact>Burger Builder</NavigationItem>
       {props.isAuthenicated ? <NavigationItem link="/orders"> Orders </NavigationItem> : null } 
       {!props.isAuthenicated
-        ? <NavigationItem link="/auth"> Auth </NavigationItem>
+        ? <NavigationItem link="/auth"> Login </NavigationItem>
         : <NavigationItem link="/logout"> Logout </NavigationItem>}
     </ul>
   )

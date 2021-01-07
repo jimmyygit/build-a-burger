@@ -39,7 +39,7 @@
   .NavigationItem a:active,
   .NavigationItem a.active {
     background-color: tomato;
-    border-bottom: 3px solid steelblue;
+    border-bottom: 3px solid rgb(160, 0, 0);
     color: white;
   } 
 }

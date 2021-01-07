@@ -104,7 +104,7 @@ function Auth(props) {
   let errorMessage = null;
   if (props.error) {
     errorMessage = (
-      <p> {props.error.message} </p>
+      <p className={classes.Error}> {props.error.message} </p>
     )
   }
 
@@ -117,6 +117,7 @@ function Auth(props) {
     <div className={classes.Auth}>
       {authRedirect}
       {errorMessage}
+      <h2> {isSignUp ? "Sign Up" : "Sign In"} </h2>
       <form onSubmit={submitHandler}>
         {form}
         <Button

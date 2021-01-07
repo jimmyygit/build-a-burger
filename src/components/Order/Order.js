@@ -30,6 +30,7 @@ export default function Order(props) {
     <div className={classes.Order}>
       <p> Ingredients: {ingredientOutput} </p>
       <p> Price: {props.price.toFixed(2)}</p>
+      <p> Ordered On: { props.date ? props.date.substring(0, 10) : 'N/A'}</p>
     </div>
   )
 }

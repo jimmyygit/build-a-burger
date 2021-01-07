@@ -7,12 +7,12 @@ import Spinner from '../../components/UI/Spinner/Spinner'
 import * as actions from '../../store/actions/index'
 
 function Orders (props) {
-  const { onFetchOrders } = props
+  const { onFetchOrders, token, userId } = props
 
   useEffect(() => {
     // console.log(this.props.token)
-    onFetchOrders(props.token, props.userId)
-  }, [props, onFetchOrders])
+    onFetchOrders(token, userId)
+  }, [onFetchOrders, token, userId])
 
 
 
@@ -22,8 +22,13 @@ function Orders (props) {
         return <Order
           key={order.id}
           ingredients={order.ingredients}
-          price={+order.price} />
+          price={+order.price}
+          date={order.date} />
       })
+    }
+
+    if (orders.length === 0) {
+      orders = <h2 style={{width: "100%", textAlign: "center"}}> No orders yet! </h2>
     }
 
     return (
